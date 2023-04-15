@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import { ContactListItem } from './ContactListItem';
-import css from './Contactlist.module.css'
+import css from './Contactlist.module.css';
 
 export const ContactsList = ({ contacts, deleteContact }) => {
-console.log(contacts);
   return (
     <ul className={css.contacts__box}>
       {contacts.map(({ id, name, number }) => {

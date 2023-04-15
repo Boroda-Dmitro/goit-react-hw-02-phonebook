@@ -31,7 +31,6 @@ export class ContactForm extends Component {
 
   render() {
     const { name, number } = this.state;
-    console.log(name, number);
     return (
       <form onSubmit={this.handleSubmit} className={css.form}>
         <label>
