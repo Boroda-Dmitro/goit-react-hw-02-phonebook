@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types';
-import { Contacts } from './Contacts';
+import { ContactListItem } from './ContactListItem';
 import css from './Contactlist.module.css'
 
-export const ContactList = ({ contacts, filterName, deleteContact }) => {
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filterName.toLowerCase())
-  );
-
+export const ContactsList = ({ contacts, deleteContact }) => {
+console.log(contacts);
   return (
     <ul className={css.contacts__box}>
-      {filteredContacts.map(({ id, name, number }) => {
+      {contacts.map(({ id, name, number }) => {
         return (
-          <Contacts
+          <ContactListItem
             key={id}
             name={name}
             number={number}
@@ -24,8 +21,7 @@ export const ContactList = ({ contacts, filterName, deleteContact }) => {
   );
 };
 
-ContactList.propTypes = {
-  filterName: PropTypes.string,
+ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
