@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import css from './Contacts.module.css';
 
 export class Contacts extends Component {
   render() {
@@ -7,10 +9,22 @@ export class Contacts extends Component {
     return (
       <li className="contacts__item">
         {name}: {number}
-        <button type="button" onClick={deleteContact} name={id}>
+        <button
+          type="button"
+          onClick={deleteContact}
+          name={id}
+          className={css.button}
+        >
           Delete
         </button>
       </li>
     );
   }
 }
+
+Contacts.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};
